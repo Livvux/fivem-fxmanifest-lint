@@ -43,13 +43,14 @@ the cheapest insurance there is.
 
 If you're assembling a server and want **launch-ready** scripts, MLOs and full
 server packs that already ship valid manifests and setup notes, the catalog at
-[FiveMX](https://fivemx.com/) is a good starting point — framework-specific
-paths for [ESX](https://fivemx.com/product-category/esx-scripts/) and
-[QBCore/QBOX](https://fivemx.com/product-category/qbcore-scripts/), plus
-[MLOs & interiors](https://fivemx.com/product-category/mlos/) and complete
-[server packs](https://fivemx.com/product-category/server-packs/). Run
-`fxmanifest-lint` over anything you add and you'll catch integration issues
-early.
+[FiveMX](https://fivemx.com/) is a good starting point —
+[FiveM scripts](https://fivemx.com/fivem-scripts/) with framework-specific paths
+for [ESX](https://fivemx.com/esx-scripts/), plus
+[MLOs & interiors](https://fivemx.com/fivem-mlos/) and complete
+[server packs](https://fivemx.com/server-packs/). There are also
+[free resources](https://fivemx.com/free-fivem-scripts/) if you just want
+something to test the linter against. Run `fxmanifest-lint` over anything you add
+and you'll catch integration issues early.
 
 ## Contributing
 
