@@ -1,0 +1,10 @@
+{
+  "ruleset_version": "2.0.0",
+  "cases": [
+    {"name":"minimal-clean","manifest":"fx_version 'cerulean'\ngame 'gta5'\n","rule_ids":[]},
+    {"name":"missing-required","manifest":"description 'metadata only'\n","rule_ids":["FXM001","FXM003"]},
+    {"name":"deprecated-lua54","manifest":"fx_version 'cerulean'\ngame 'gta5'\nlua54 'yes'\n","rule_ids":["FXM005"]},
+    {"name":"invalid-node","manifest":"fx_version('cerulean')\ngames { 'gta5' }\nnode_version '20'\n","rule_ids":["FXM006"]},
+    {"name":"nui-file-missing","manifest":"fx_version 'cerulean'\ngame 'gta5'\nui_page 'html/index.html'\nfiles { 'html/app.js' }\n","rule_ids":["FXM008"]}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "ruleset_version": "2.0.0",
+  "source": "https://docs.fivem.net/docs/scripting-reference/resource-manifest/",
+  "rules": [
+    {"rule_id":"FXM001","severity":"error","message":"Missing required fx_version declaration.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#fx_version"},
+    {"rule_id":"FXM002","severity":"error","message":"Invalid fx_version value.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#fx_version"},
+    {"rule_id":"FXM003","severity":"error","message":"Missing required game or games declaration.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#game"},
+    {"rule_id":"FXM004","severity":"error","message":"Invalid game value.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#game"},
+    {"rule_id":"FXM005","severity":"warning","message":"lua54 is deprecated; all Lua scripts use Lua 5.4 since June 2025.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#lua54"},
+    {"rule_id":"FXM006","severity":"error","message":"node_version must be 16 or 22.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#node_version"},
+    {"rule_id":"FXM007","severity":"warning","message":"A singleton directive is declared more than once.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/"},
+    {"rule_id":"FXM008","severity":"error","message":"A local ui_page must also be covered by file or files.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#ui_page"},
+    {"rule_id":"FXM009","severity":"error","message":"A referenced local file does not exist.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#file"},
+    {"rule_id":"FXM010","severity":"error","message":"A referenced glob matched no local files.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#globbing"},
+    {"rule_id":"FXM011","severity":"warning","message":"A named dependency was not found next to this resource.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#dependency"},
+    {"rule_id":"FXM012","severity":"error","message":"Singular directives require one scalar; plural directives require a table.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#example"},
+    {"rule_id":"FXM013","severity":"warning","message":"A script, file, or dependency entry is duplicated.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/"},
+    {"rule_id":"FXM014","severity":"error","message":"A data_file path must be covered by file or files.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#data_file"},
+    {"rule_id":"FXM015","severity":"error","message":"data_file requires a type and a path.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#data_file"},
+    {"rule_id":"FXM017","severity":"error","message":"Manifest exceeds the 64 KB browser validation limit.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/"},
+    {"rule_id":"FXM018","severity":"error","message":"__resource.lua is deprecated; migrate to fxmanifest.lua.","docs_url":"https://docs.fivem.net/docs/scripting-reference/resource-manifest/#resource_manifest_version"}
+  ]
+}
