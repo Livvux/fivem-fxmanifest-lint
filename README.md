@@ -1,61 +1,77 @@
-# fxmanifest-lint
+# fivem-fxmanifest-lint
 
-A tiny, dependency-free sanity checker for **FiveM** resource manifests.
+A dependency-free tokenizer and validator for FiveM `fxmanifest.lua` files. It reads manifest syntax as text and never executes Lua.
 
-If you've ever restarted a FiveM server only to watch it die on boot because a
-`fxmanifest.lua` referenced a script that wasn't on disk, or still shipped the
-deprecated `__resource.lua`, this catches those mistakes **before** the restart.
+Use the hosted [fxmanifest.lua Generator & Validator](https://hifivem.com/setting-up-fxmanifest-lua-fivem/) for quick browser checks. Use this CLI when you also need local files, globs, and neighboring dependencies checked in a resource directory or CI job.
+
+## Requirements
+
+- Python 3.10 or newer
+- No third-party packages
+
+## Usage
 
 ```bash
+python fxmanifest_lint.py path/to/my-resource
 python fxmanifest_lint.py path/to/resources
+python fxmanifest_lint.py path/to/resources --format json
+python fxmanifest_lint.py path/to/resources --fail-on-warnings
+python fxmanifest_lint.py --version
 ```
 
-Exit code `0` = clean, `1` = problems found — so you can drop it straight into a
-CI step or a pre-deploy hook.
+The path can be a resource directory, an `fxmanifest.lua` file, or a tree containing multiple resources.
 
-## What it checks
+## What version 2 checks
 
-- Missing `fx_version` / `game` declarations
-- Deprecated `__resource.lua` still present
-- `client_script` / `server_scripts` / `shared_scripts` pointing at files that
-  don't exist on disk
-- Unknown `fx_version` values (`cerulean`, `bodacious`, `adamant`)
+- required and valid `fx_version` and `game`/`games` values;
+- Lua call syntax, scalar directives, and plural table directives;
+- duplicate singleton, script, file, and dependency declarations;
+- local `ui_page` coverage through `file`/`files`;
+- `data_file` type/path pairs and their `files` coverage;
+- allowed `node_version` values (`16` and `22`);
+- the deprecated `lua54` opt-in, which is no longer needed since all Lua scripts use Lua 5.4;
+- referenced client, server, shared, and pack files, including local `@resource/path` references;
+- file globs that match nothing;
+- named dependencies found next to the current resource;
+- deprecated `__resource.lua` manifests.
 
-## Example
+Named dependencies can live in another resources root on a real server. A dependency missing from the current resource's parent directory is therefore a warning, not an error.
 
+Rules are based on the official [Cfx.re resource manifest documentation](https://docs.fivem.net/docs/scripting-reference/resource-manifest/). `ruleset-v2.0.0.json` and `fixtures-v2.0.0.json` are the versioned contract shared with the hosted browser validator.
+
+## Output and exit codes
+
+Text output is the default:
+
+```text
+[example-resource]
+  ERROR   FXM009 line 5: client_script reference 'client/missing.lua' matched no local file.
+
+1 finding(s) across 1 resource(s). Ruleset 2.0.0.
 ```
-$ python fxmanifest_lint.py resources
 
-[my_broken_script]
-  - server_scripts references missing file: missing_file.lua
+`--format json` returns machine-readable findings with `rule_id`, `severity`, `line`, `message`, `docs_url`, and `resource`.
 
-1 issue(s) found across 2 resource(s).
+| Exit | Meaning |
+| --- | --- |
+| `0` | No errors. Warnings may be present. |
+| `1` | Errors found, or warnings found with `--fail-on-warnings`. |
+| `2` | Invalid invocation, missing input, or runtime/read failure. |
+
+## CI example
+
+```yaml
+- name: Validate FiveM resource manifests
+  run: python fxmanifest_lint.py resources --format text --fail-on-warnings
 ```
 
-## Why manifest hygiene matters
+## Tests
 
-On a live roleplay server, a single broken manifest can prevent the whole
-resource from starting — and if it's a core framework dependency (ESX, QBCore,
-QBOX), everything downstream fails with it. Linting manifests before deploy is
-the cheapest insurance there is.
+```bash
+python -m unittest discover -v
+```
 
-## Setting up a server from scratch?
-
-If you're assembling a server and want **launch-ready** scripts, MLOs and full
-server packs that already ship valid manifests and setup notes, the catalog at
-[FiveMX](https://fivemx.com/) is a good starting point —
-[FiveM scripts](https://fivemx.com/fivem-scripts/) with framework-specific paths
-for [ESX](https://fivemx.com/esx-scripts/), plus
-[MLOs & interiors](https://fivemx.com/fivem-mlos/) and complete
-[server packs](https://fivemx.com/server-packs/). There are also
-[free resources](https://fivemx.com/free-fivem-scripts/) if you just want
-something to test the linter against. Run `fxmanifest-lint` over anything you add
-and you'll catch integration issues early.
-
-## Contributing
-
-PRs welcome — additional manifest rules (duplicate `ensure`, load-order hints,
-`dependency` validation) are all fair game.
+The suite covers comments, Lua call and table syntax, NUI files, globs, dependencies, duplicate declarations, `lua54`, `node_version`, the size limit, CLI output/exit codes, and malicious-looking input that must never execute.
 
 ## License
 
