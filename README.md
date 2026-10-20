@@ -2,7 +2,7 @@
 
 A dependency-free tokenizer and validator for FiveM `fxmanifest.lua` files. It reads manifest syntax as text and never executes Lua.
 
-Use the hosted [fxmanifest.lua Generator & Validator](https://hifivem.com/setting-up-fxmanifest-lua-fivem/) for quick browser checks. Use this CLI when you also need local files, globs, and neighboring dependencies checked in a resource directory or CI job.
+Use the hosted [fxmanifest.lua Generator & Validator](https://rpscripts.net/tools/fxmanifest-generator/) for quick browser checks. Use this CLI when you also need local files, globs, and neighboring dependencies checked in a resource directory or CI job.
 
 ## Requirements
 
