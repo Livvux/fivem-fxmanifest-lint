@@ -1,0 +1,224 @@
+{
+  "checkedAt": "2026-10-22",
+  "url": "https://rpscripts.net/tools/fxmanifest-generator/",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.1-nightly.20261018.3285 Chrome/152.0.7977.130 Electron/44.4.5 Safari/537.36",
+  "fixture_sha256": "a7d7db1b40d1681b35ffa67ec850e27d8ee7648ac4398f35501e537336bf92ac",
+  "cases": [
+    {
+      "name": "minimal-clean",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "name": "missing-required",
+      "expected": [
+        "FXM001",
+        "FXM003"
+      ],
+      "actual": [
+        "FXM001",
+        "FXM003"
+      ],
+      "pass": true
+    },
+    {
+      "name": "deprecated-lua54",
+      "expected": [
+        "FXM005"
+      ],
+      "actual": [
+        "FXM005"
+      ],
+      "pass": true
+    },
+    {
+      "name": "invalid-node",
+      "expected": [
+        "FXM006"
+      ],
+      "actual": [
+        "FXM006"
+      ],
+      "pass": true
+    },
+    {
+      "name": "nui-file-missing",
+      "expected": [
+        "FXM008"
+      ],
+      "actual": [
+        "FXM008"
+      ],
+      "pass": true
+    },
+    {
+      "name": "missing-fx-version",
+      "expected": [
+        "FXM001"
+      ],
+      "actual": [
+        "FXM001"
+      ],
+      "pass": true
+    },
+    {
+      "name": "invalid-fx-version",
+      "expected": [
+        "FXM002"
+      ],
+      "actual": [
+        "FXM002"
+      ],
+      "pass": true
+    },
+    {
+      "name": "missing-game",
+      "expected": [
+        "FXM003"
+      ],
+      "actual": [
+        "FXM003"
+      ],
+      "pass": true
+    },
+    {
+      "name": "invalid-game",
+      "expected": [
+        "FXM004"
+      ],
+      "actual": [
+        "FXM004"
+      ],
+      "pass": true
+    },
+    {
+      "name": "node-16-clean",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "name": "node-22-clean",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "name": "duplicate-singleton",
+      "expected": [
+        "FXM007"
+      ],
+      "actual": [
+        "FXM007"
+      ],
+      "pass": true
+    },
+    {
+      "name": "plural-requires-table",
+      "expected": [
+        "FXM012"
+      ],
+      "actual": [
+        "FXM012"
+      ],
+      "pass": true
+    },
+    {
+      "name": "singular-requires-scalar",
+      "expected": [
+        "FXM012"
+      ],
+      "actual": [
+        "FXM012"
+      ],
+      "pass": true
+    },
+    {
+      "name": "duplicate-script",
+      "expected": [
+        "FXM013"
+      ],
+      "actual": [
+        "FXM013"
+      ],
+      "pass": true
+    },
+    {
+      "name": "duplicate-file",
+      "expected": [
+        "FXM013"
+      ],
+      "actual": [
+        "FXM013"
+      ],
+      "pass": true
+    },
+    {
+      "name": "duplicate-dependency",
+      "expected": [
+        "FXM013"
+      ],
+      "actual": [
+        "FXM013"
+      ],
+      "pass": true
+    },
+    {
+      "name": "nui-exact-file-clean",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "name": "remote-nui-clean",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "name": "data-file-covered-clean",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "name": "data-file-uncovered",
+      "expected": [
+        "FXM014"
+      ],
+      "actual": [
+        "FXM014"
+      ],
+      "pass": true
+    },
+    {
+      "name": "data-file-missing-path",
+      "expected": [
+        "FXM015"
+      ],
+      "actual": [
+        "FXM015"
+      ],
+      "pass": true
+    },
+    {
+      "name": "commented-directives-ignored",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "name": "call-syntax-clean",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    },
+    {
+      "name": "custom-metadata-clean",
+      "expected": [],
+      "actual": [],
+      "pass": true
+    }
+  ]
+}

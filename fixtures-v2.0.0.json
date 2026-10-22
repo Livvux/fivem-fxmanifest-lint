@@ -1,10 +1,163 @@
 {
   "ruleset_version": "2.0.0",
   "cases": [
-    {"name":"minimal-clean","manifest":"fx_version 'cerulean'\ngame 'gta5'\n","rule_ids":[]},
-    {"name":"missing-required","manifest":"description 'metadata only'\n","rule_ids":["FXM001","FXM003"]},
-    {"name":"deprecated-lua54","manifest":"fx_version 'cerulean'\ngame 'gta5'\nlua54 'yes'\n","rule_ids":["FXM005"]},
-    {"name":"invalid-node","manifest":"fx_version('cerulean')\ngames { 'gta5' }\nnode_version '20'\n","rule_ids":["FXM006"]},
-    {"name":"nui-file-missing","manifest":"fx_version 'cerulean'\ngame 'gta5'\nui_page 'html/index.html'\nfiles { 'html/app.js' }\n","rule_ids":["FXM008"]}
+    {
+      "name": "minimal-clean",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\n",
+      "rule_ids": []
+    },
+    {
+      "name": "missing-required",
+      "manifest": "description 'metadata only'\n",
+      "rule_ids": [
+        "FXM001",
+        "FXM003"
+      ]
+    },
+    {
+      "name": "deprecated-lua54",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nlua54 'yes'\n",
+      "rule_ids": [
+        "FXM005"
+      ]
+    },
+    {
+      "name": "invalid-node",
+      "manifest": "fx_version('cerulean')\ngames { 'gta5' }\nnode_version '20'\n",
+      "rule_ids": [
+        "FXM006"
+      ]
+    },
+    {
+      "name": "nui-file-missing",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nui_page 'html/index.html'\nfiles { 'html/app.js' }\n",
+      "rule_ids": [
+        "FXM008"
+      ]
+    },
+    {
+      "name": "missing-fx-version",
+      "manifest": "game 'gta5'\n",
+      "rule_ids": [
+        "FXM001"
+      ]
+    },
+    {
+      "name": "invalid-fx-version",
+      "manifest": "fx_version 'future'\ngame 'gta5'\n",
+      "rule_ids": [
+        "FXM002"
+      ]
+    },
+    {
+      "name": "missing-game",
+      "manifest": "fx_version 'cerulean'\n",
+      "rule_ids": [
+        "FXM003"
+      ]
+    },
+    {
+      "name": "invalid-game",
+      "manifest": "fx_version 'cerulean'\ngame 'minecraft'\n",
+      "rule_ids": [
+        "FXM004"
+      ]
+    },
+    {
+      "name": "node-16-clean",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nnode_version '16'\n",
+      "rule_ids": []
+    },
+    {
+      "name": "node-22-clean",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nnode_version '22'\n",
+      "rule_ids": []
+    },
+    {
+      "name": "duplicate-singleton",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nfx_version 'cerulean'\n",
+      "rule_ids": [
+        "FXM007"
+      ]
+    },
+    {
+      "name": "plural-requires-table",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nclient_scripts 'client.lua'\n",
+      "rule_ids": [
+        "FXM012"
+      ]
+    },
+    {
+      "name": "singular-requires-scalar",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nclient_script { 'client.lua' }\n",
+      "rule_ids": [
+        "FXM012"
+      ]
+    },
+    {
+      "name": "duplicate-script",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nclient_script 'client.lua'\nclient_script 'client.lua'\n",
+      "rule_ids": [
+        "FXM013"
+      ]
+    },
+    {
+      "name": "duplicate-file",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nfiles { 'html/app.js', 'html/app.js' }\n",
+      "rule_ids": [
+        "FXM013"
+      ]
+    },
+    {
+      "name": "duplicate-dependency",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\ndependency 'example_core'\ndependency 'example_core'\n",
+      "rule_ids": [
+        "FXM013"
+      ]
+    },
+    {
+      "name": "nui-exact-file-clean",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nui_page 'html/index.html'\nfiles { 'html/index.html' }\n",
+      "rule_ids": []
+    },
+    {
+      "name": "remote-nui-clean",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nui_page 'https://example.com/ui/'\n",
+      "rule_ids": []
+    },
+    {
+      "name": "data-file-covered-clean",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\ndata_file 'HANDLING_FILE' 'data/handling.meta'\nfiles { 'data/handling.meta' }\n",
+      "rule_ids": []
+    },
+    {
+      "name": "data-file-uncovered",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\ndata_file 'HANDLING_FILE' 'data/handling.meta'\n",
+      "rule_ids": [
+        "FXM014"
+      ]
+    },
+    {
+      "name": "data-file-missing-path",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\ndata_file 'HANDLING_FILE'\n",
+      "rule_ids": [
+        "FXM015"
+      ]
+    },
+    {
+      "name": "commented-directives-ignored",
+      "manifest": "-- fx_version 'future'\n--[[ game 'minecraft' ]]\nfx_version 'cerulean'\ngame 'gta5'\n",
+      "rule_ids": []
+    },
+    {
+      "name": "call-syntax-clean",
+      "manifest": "fx_version('cerulean')\ngames({ 'gta5', 'rdr3' })\nclient_scripts({ 'client.lua' })\n",
+      "rule_ids": []
+    },
+    {
+      "name": "custom-metadata-clean",
+      "manifest": "fx_version 'cerulean'\ngame 'gta5'\nauthor 'Example author'\ncustom_metadata 'example'\n",
+      "rule_ids": []
+    }
   ]
 }
