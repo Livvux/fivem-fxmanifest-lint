@@ -37,6 +37,8 @@ The path can be a resource directory, an `fxmanifest.lua` file, or a tree contai
 
 Named dependencies can live in another resources root on a real server. A dependency missing from the current resource's parent directory is therefore a warning, not an error.
 
+The shared text-only corpus contains 25 named cases with explicit expected rule IDs. See [Corpus methodology and limits](CORPUS.md) to reproduce the checks and understand what a clean report does not prove.
+
 Rules are based on the official [Cfx.re resource manifest documentation](https://docs.fivem.net/docs/scripting-reference/resource-manifest/). `ruleset-v2.0.0.json` and `fixtures-v2.0.0.json` are the versioned contract shared with the hosted browser validator.
 
 ## Output and exit codes
