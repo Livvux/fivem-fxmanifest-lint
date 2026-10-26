@@ -1,0 +1,1 @@
+-- Static installation fixture only; no gameplay behavior.

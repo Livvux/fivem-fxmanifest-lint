@@ -1,0 +1,7 @@
+title: FiveM resource installation checklist
+description: Check resource folders, fxmanifest paths and dependencies, reproduce a missing-file finding, then test on a development server.
+url: https://livvux.github.io
+baseurl: /fivem-fxmanifest-lint
+lang: en
+theme: jekyll-theme-minimal
+show_downloads: false

@@ -4,6 +4,8 @@ A dependency-free tokenizer and validator for FiveM `fxmanifest.lua` files. It r
 
 Use the hosted [fxmanifest.lua Generator & Validator](https://rpscripts.net/tools/fxmanifest-generator/) for quick browser checks. Use this CLI when you also need local files, globs, and neighboring dependencies checked in a resource directory or CI job.
 
+New to installing resources? Follow the [FiveM resource installation checklist](https://livvux.github.io/fivem-fxmanifest-lint/) or keep the [Markdown checklist](CHECKLIST.md) beside your deployment notes. The guide includes a reproducible missing-file example and explains which checks still need a development server.
+
 ## Requirements
 
 - Python 3.10 or newer
